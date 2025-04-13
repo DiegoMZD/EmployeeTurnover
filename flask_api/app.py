@@ -2,9 +2,8 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 
-# Load Model and Preprocessor
+# Load Model
 pipeline = joblib.load("models\p2_bagg_hyp.pkl")
-# preprocessor = joblib.load("../models/prep2.pkl")
 
 app = Flask(__name__)
 
@@ -14,11 +13,7 @@ def predict():
     data = request.get_json()
     df = pd.DataFrame([data])
 
-    # Apply Preprocessing
-    # processed_data = preprocessor.transform(df)
-
     # Make Prediction
-    # prediction = model.predict(processed_data)
     prediction = pipeline.predict(df)
     return jsonify({'turnover_prediction': int(prediction[0])})
 
