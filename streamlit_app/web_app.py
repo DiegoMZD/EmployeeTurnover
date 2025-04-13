@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 # Load Model and Preprocessor
-pipeline = joblib.load("models\p2_bagg_hyp.pkl")
+pipeline = joblib.load("p2_bagg_hyp.pkl")
 # preprocessor = joblib.load('preprocessor.pkl')
 
 st.title("Employee Turnover Prediction")
